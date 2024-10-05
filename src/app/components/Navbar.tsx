@@ -10,16 +10,20 @@ import {
   MenuItem,
   Button,
   IconButton,
+  HStack,
+  Divider,
+  Icon,
 } from "@chakra-ui/react";
 import { HiChevronDown } from "react-icons/hi"; // Importuj ikonę strzałki w dół
 import { FaCog, FaUser, FaSignOutAlt } from "react-icons/fa";
+import { MdEmail, MdDriveFolderUpload } from "react-icons/md"; // Ikony do Google Mail i Google Dysku
 import Link from "next/link";
 
 export default function Navbar() {
   return (
     <Flex
       as="nav"
-      p={4}
+      p={6} // Zwiększenie paddingu, aby powiększyć wysokość navbaru
       bg="teal.600" // Zmiana koloru tła na ciemniejszy odcień
       color="white"
       justify="space-between"
@@ -29,38 +33,60 @@ export default function Navbar() {
       <Flex align="center">
         <Link href="/" passHref>
           <Text
-            mr={4}
+            mr={6} // Zwiększenie marginesu
+            fontSize="lg" // Zwiększenie rozmiaru tekstu
             fontWeight="bold"
             _hover={{ textDecoration: "underline" }}
           >
-            Dashboard
-          </Text>
-        </Link>
-        <Link href="/projects" passHref>
-          <Text
-            mr={4}
-            fontWeight="bold"
-            _hover={{ textDecoration: "underline" }}
-          >
-            Projekty
-          </Text>
-        </Link>
-        <Link href="/drives" passHref>
-          <Text fontWeight="bold" _hover={{ textDecoration: "underline" }}>
-            Linki do Dysków
+            Strona Główna
           </Text>
         </Link>
       </Flex>
 
       {/* Sekcja powitania i rozwijanego menu */}
       <Flex align="center">
+        {/* Divider z ikonami do Google Mail i Google Dysku */}
+        <HStack spacing={4} mr={6}>
+          <Link
+            href="https://mail.google.com/mail/u/0/?ogbl#inbox"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              as={MdEmail}
+              boxSize={9} // Zwiększenie rozmiaru ikony
+              color="white"
+              _hover={{ color: "teal.300" }}
+            />
+          </Link>
+          <Link
+            href="https://drive.google.com/drive/u/0/home"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              as={MdDriveFolderUpload}
+              boxSize={9} // Zwiększenie rozmiaru ikony
+              color="white"
+              _hover={{ color: "teal.300" }}
+            />
+          </Link>
+        </HStack>
+
+        <Divider
+          orientation="vertical"
+          height="40px" // Zwiększenie wysokości dividera
+          borderColor="white"
+          mr={6}
+        />
+
         <Avatar
           name="Bartek"
           src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png" // Zastąp odpowiednią ścieżką do zdjęcia
-          size="sm" // Zwiększenie rozmiaru awatara
-          mr={2}
+          size="md"
+          mr={4}
         />
-        <Text mr={2} fontWeight="bold">
+        <Text mr={2} fontSize="lg" fontWeight="bold">
           Witaj, Bartek
         </Text>
 

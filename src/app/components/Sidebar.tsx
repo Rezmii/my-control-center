@@ -1,4 +1,7 @@
-import { Box, VStack } from "@chakra-ui/react";
+"use client";
+
+import { Box, VStack, Flex, Icon, Text } from "@chakra-ui/react";
+import { FaFolder, FaBook, FaPlane } from "react-icons/fa"; // Importuj ikony
 import Link from "next/link";
 
 export default function Sidebar() {
@@ -14,14 +17,50 @@ export default function Sidebar() {
       overflow="hidden" // Zablokuje przewijanie
     >
       <VStack align="start" spacing={4}>
-        <Link href="/" passHref>
-          Dashboard
-        </Link>
         <Link href="/projects" passHref>
-          Projekty
+          <Flex
+            align="center"
+            gap={1}
+            p={2} // Dodaj padding dla lepszego efektu hover
+            borderRadius="md" // Zaokrąglone rogi
+            _hover={{
+              bg: "teal.600", // Zmiana koloru tła podczas hover
+              color: "white", // Zmiana koloru tekstu podczas hover
+            }}
+          >
+            <Icon as={FaFolder} boxSize={7} mr={2} />
+            <Text fontSize="lg">Projekty</Text>
+          </Flex>
         </Link>
-        <Link href="/drives" passHref>
-          Linki do Dysków
+        <Link href="/library" passHref>
+          <Flex
+            align="center"
+            gap={1}
+            p={2} // Dodaj padding dla lepszego efektu hover
+            borderRadius="md" // Zaokrąglone rogi
+            _hover={{
+              bg: "teal.600", // Zmiana koloru tła podczas hover
+              color: "white", // Zmiana koloru tekstu podczas hover
+            }}
+          >
+            <Icon as={FaBook} boxSize={7} mr={2} />
+            <Text fontSize="lg">Biblioteka</Text>
+          </Flex>
+        </Link>
+        <Link href="/trips" passHref>
+          <Flex
+            align="center"
+            gap={1}
+            p={2} // Dodaj padding dla lepszego efektu hover
+            borderRadius="md" // Zaokrąglone rogi
+            _hover={{
+              bg: "teal.600", // Zmiana koloru tła podczas hover
+              color: "white", // Zmiana koloru tekstu podczas hover
+            }}
+          >
+            <Icon as={FaPlane} boxSize={7} mr={2} />
+            <Text fontSize="lg">Tripy</Text>
+          </Flex>
         </Link>
       </VStack>
     </Box>
