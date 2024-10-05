@@ -1,7 +1,8 @@
 "use client";
 
 import { Box, VStack, Flex, Icon, Text } from "@chakra-ui/react";
-import { FaFolder, FaBook, FaPlane } from "react-icons/fa"; // Importuj ikony
+import { FaBriefcase, FaBook, FaGlobe } from "react-icons/fa";
+import { GoGoal } from "react-icons/go";
 import Link from "next/link";
 
 export default function Sidebar() {
@@ -10,55 +11,70 @@ export default function Sidebar() {
       as="nav"
       pos="relative"
       w="200px"
-      h="auto" // Ustawi wysokość na 100% widoku
+      h="auto"
       bg="gray.800"
       color="white"
       p={4}
-      overflow="hidden" // Zablokuje przewijanie
+      overflow="hidden"
     >
       <VStack align="start" spacing={4}>
-        <Link href="/projects" passHref>
+        <Link href="/pages/goals" passHref>
           <Flex
             align="center"
             gap={1}
-            p={2} // Dodaj padding dla lepszego efektu hover
-            borderRadius="md" // Zaokrąglone rogi
+            p={2}
+            borderRadius="md"
             _hover={{
-              bg: "teal.600", // Zmiana koloru tła podczas hover
-              color: "white", // Zmiana koloru tekstu podczas hover
+              bg: "teal.600",
+              color: "white",
             }}
           >
-            <Icon as={FaFolder} boxSize={7} mr={2} />
+            <Icon as={GoGoal} boxSize={7} mr={2} />
+            <Text fontSize="lg">Cele</Text>
+          </Flex>
+        </Link>
+        <Link href="/pages/projects" passHref>
+          <Flex
+            align="center"
+            gap={1}
+            p={2}
+            borderRadius="md"
+            _hover={{
+              bg: "teal.600",
+              color: "white",
+            }}
+          >
+            <Icon as={FaBriefcase} boxSize={7} mr={2} />
             <Text fontSize="lg">Projekty</Text>
           </Flex>
         </Link>
-        <Link href="/library" passHref>
+        <Link href="/pages/library" passHref>
           <Flex
             align="center"
             gap={1}
-            p={2} // Dodaj padding dla lepszego efektu hover
-            borderRadius="md" // Zaokrąglone rogi
+            p={2}
+            borderRadius="md"
             _hover={{
-              bg: "teal.600", // Zmiana koloru tła podczas hover
-              color: "white", // Zmiana koloru tekstu podczas hover
+              bg: "teal.600",
+              color: "white",
             }}
           >
             <Icon as={FaBook} boxSize={7} mr={2} />
             <Text fontSize="lg">Biblioteka</Text>
           </Flex>
         </Link>
-        <Link href="/trips" passHref>
+        <Link href="/pages/trips" passHref>
           <Flex
             align="center"
             gap={1}
-            p={2} // Dodaj padding dla lepszego efektu hover
-            borderRadius="md" // Zaokrąglone rogi
+            p={2}
+            borderRadius="md"
             _hover={{
-              bg: "teal.600", // Zmiana koloru tła podczas hover
-              color: "white", // Zmiana koloru tekstu podczas hover
+              bg: "teal.600",
+              color: "white",
             }}
           >
-            <Icon as={FaPlane} boxSize={7} mr={2} />
+            <Icon as={FaGlobe} boxSize={7} mr={2} />
             <Text fontSize="lg">Tripy</Text>
           </Flex>
         </Link>

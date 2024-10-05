@@ -15,8 +15,9 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { HiChevronDown } from "react-icons/hi"; // Importuj ikonę strzałki w dół
-import { FaCog, FaUser, FaSignOutAlt } from "react-icons/fa";
+import { FaCog, FaUser, FaSignOutAlt, FaGoogleDrive } from "react-icons/fa";
 import { MdEmail, MdDriveFolderUpload } from "react-icons/md"; // Ikony do Google Mail i Google Dysku
+import { SiGmail } from "react-icons/si";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -53,8 +54,8 @@ export default function Navbar() {
             rel="noopener noreferrer"
           >
             <Icon
-              as={MdEmail}
-              boxSize={9} // Zwiększenie rozmiaru ikony
+              as={SiGmail}
+              boxSize={7} // Zwiększenie rozmiaru ikony
               color="white"
               _hover={{ color: "teal.300" }}
             />
@@ -65,8 +66,8 @@ export default function Navbar() {
             rel="noopener noreferrer"
           >
             <Icon
-              as={MdDriveFolderUpload}
-              boxSize={9} // Zwiększenie rozmiaru ikony
+              as={FaGoogleDrive}
+              boxSize={7} // Zwiększenie rozmiaru ikony
               color="white"
               _hover={{ color: "teal.300" }}
             />
