@@ -107,7 +107,9 @@ export default function Navbar() {
               color="white"
               _hover={{ bg: "teal.500", color: "white" }}
             >
-              <Link href="/settings">Ustawienia</Link>
+              <Link href="/pages/settings" passHref>
+                Ustawienia
+              </Link>
             </MenuItem>
             <MenuItem
               icon={<FaUser />}
@@ -115,7 +117,9 @@ export default function Navbar() {
               color="white"
               _hover={{ bg: "teal.500", color: "white" }}
             >
-              <Link href="/profile">Profil</Link>
+              <Link href="/profile" passHref>
+                Profil
+              </Link>
             </MenuItem>
             <MenuItem
               icon={<FaSignOutAlt />}

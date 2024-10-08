@@ -1,4 +1,5 @@
 import { Box, Grid, Heading, Text } from "@chakra-ui/react";
+import GoogleCalendarEmbed from "./components/GoogleCalendarEmbeded";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
           <Text mt={4}>Zarządzaj przypomnieniami i zadaniami.</Text>
         </Box>
       </Grid>
+      <GoogleCalendarEmbed />
     </Box>
   );
 }
