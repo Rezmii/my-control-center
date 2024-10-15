@@ -1,13 +1,14 @@
 import React from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
 
-const GoogleCalendarEmbed = () => {
+const GoogleCalendarEmbeded = () => {
   return (
     <Box
       maxW="900px"
       mx="auto"
       my={4}
       p={4}
+      border="1px solid #e2e8f0"
       borderRadius="lg"
       boxShadow="lg"
       bg="white"
@@ -31,4 +32,4 @@ const GoogleCalendarEmbed = () => {
   );
 };
 
-export default GoogleCalendarEmbed;
+export default GoogleCalendarEmbeded;
