@@ -1,6 +1,5 @@
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
-require("dotenv").config();
 
 function getStartOfWeek() {
   const now = new Date();

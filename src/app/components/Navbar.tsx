@@ -8,7 +8,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  Button,
   IconButton,
   HStack,
   Divider,
@@ -16,7 +15,6 @@ import {
 } from "@chakra-ui/react";
 import { HiChevronDown } from "react-icons/hi"; // Importuj ikonę strzałki w dół
 import { FaCog, FaUser, FaSignOutAlt, FaGoogleDrive } from "react-icons/fa";
-import { MdEmail, MdDriveFolderUpload } from "react-icons/md"; // Ikony do Google Mail i Google Dysku
 import { SiGmail } from "react-icons/si";
 import Link from "next/link";
 

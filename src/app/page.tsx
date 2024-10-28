@@ -1,4 +1,4 @@
-import { Box, Grid, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import GoogleCalendarEmbeded from "./components/GoogleCalendarEmbeded";
 import CalendarData from "./components/CalendarData";
 
