@@ -36,3 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 /config/my-control-center-ad42973bbbe5.json
+.env

@@ -1,7 +1,6 @@
 import { google } from "googleapis";
-import fs from "fs";
-import path from "path";
 import { NextResponse } from "next/server";
+require("dotenv").config();
 
 function getStartOfWeek() {
   const now = new Date();
@@ -22,16 +21,12 @@ function getEndOfWeek() {
 
 export async function GET() {
   try {
-    const keyPath = path.join(
-      process.cwd(),
-      "config/my-control-center-ad42973bbbe5.json"
+    const auth = new google.auth.JWT(
+      process.env.GOOGLE_CLIENT_EMAIL,
+      null,
+      process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"), // Zamiana \\n na \n
+      ["https://www.googleapis.com/auth/calendar.readonly"]
     );
-    const key = JSON.parse(fs.readFileSync(keyPath, "utf8"));
-
-    // Utwórz autoryzację JWT z kluczem prywatnym konta serwisowego
-    const auth = new google.auth.JWT(key.client_email, null, key.private_key, [
-      "https://www.googleapis.com/auth/calendar.readonly",
-    ]);
 
     // Inicjalizacja API Kalendarza
     const calendar = google.calendar({ version: "v3", auth });
