@@ -2,6 +2,7 @@
   "name": "my-control-center",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,6 +14,7 @@
     "@chakra-ui/react": "^2.10.1",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@mapbox/node-pre-gyp": "^1.0.11",
     "aws-sdk": "^2.1691.0",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.11.1",
@@ -21,6 +23,8 @@
     "mock-aws-s3": "^4.0.2",
     "next": "14.2.14",
     "nock": "^13.5.5",
+    "node-gyp": "^10.2.0",
+    "npm": "^10.9.0",
     "ps-list": "^8.1.1",
     "react": "^18",
     "react-dom": "^18",
@@ -32,6 +36,8 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.14",
-    "typescript": "^5"
+    "ignore-loader": "^0.1.2",
+    "typescript": "^5",
+    "webpack-filter-warnings-plugin": "^1.2.1"
   }
 }

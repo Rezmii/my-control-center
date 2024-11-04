@@ -17,7 +17,6 @@ export async function GET() {
 
     // Pobieranie notatek
     const notesResponse = await keep.notes.list();
-    console.log("Full Notes Response:", JSON.stringify(notesResponse, null, 2));
     const notes = notesResponse.data.notes || [];
 
     // Zwróć dane notatek jako JSON
