@@ -23,7 +23,6 @@ export default function CalendarData() {
       try {
         const res = await fetch("/api/calendar");
         const data = await res.json();
-        console.log(data);
         setEvents(data);
       } catch (error) {
         console.error("Error fetching calendar events:", error);

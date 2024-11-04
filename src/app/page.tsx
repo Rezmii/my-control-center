@@ -1,6 +1,8 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 import GoogleCalendarEmbeded from "./components/GoogleCalendarEmbeded";
 import CalendarData from "./components/CalendarData";
+import NotesData from "./components/NotesData";
+import AppTimeData from "./components/AppTimeData";
 
 export default function Home() {
   return (
@@ -9,9 +11,20 @@ export default function Home() {
         Centrum Sterowania
       </Heading>
 
-      <CalendarData />
-
-      <GoogleCalendarEmbeded />
+      <Flex direction={{ base: "column", md: "row" }} gap={4}>
+        <Box flex="1">
+          <CalendarData />
+        </Box>
+        <Box flex="1">
+          <NotesData />
+        </Box>
+        <Box flex="1">
+          <GoogleCalendarEmbeded />
+        </Box>
+        <Box flex="1">
+          <AppTimeData />
+        </Box>
+      </Flex>
     </Box>
   );
 }
