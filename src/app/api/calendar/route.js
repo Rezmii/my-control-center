@@ -35,7 +35,7 @@ export async function GET() {
     const timeMax = getEndOfWeek().toISOString();
 
     // Pobieranie wydarzeń z kalendarza
-    const events = await calendar.events.list({
+    const personalEvents = await calendar.events.list({
       calendarId: "bartoszrezmer20@gmail.com",
       timeMin,
       timeMax,
@@ -44,8 +44,22 @@ export async function GET() {
       orderBy: "startTime",
     });
 
+    // Pobieranie świąt z kalendarza
+    const holidayEvents = await calendar.events.list({
+      calendarId: "pl.polish#holiday@group.v.calendar.google.com", // ID for Polish holidays
+      timeMin,
+      timeMax,
+      singleEvents: true,
+      orderBy: "startTime",
+    });
+
+    const combinedEvents = [
+      ...personalEvents.data.items,
+      ...holidayEvents.data.items,
+    ];
+
     // Zwróć dane wydarzeń jako JSON
-    return NextResponse.json(events.data.items);
+    return NextResponse.json(combinedEvents);
   } catch (error) {
     console.error(error);
     return NextResponse.json(

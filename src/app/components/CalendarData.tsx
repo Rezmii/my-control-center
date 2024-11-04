@@ -23,6 +23,7 @@ export default function CalendarData() {
       try {
         const res = await fetch("/api/calendar");
         const data = await res.json();
+        console.log(data);
         setEvents(data);
       } catch (error) {
         console.error("Error fetching calendar events:", error);
@@ -95,6 +96,7 @@ export default function CalendarData() {
               maxW="600px"
             >
               <Text fontWeight="bold">
+                {event.summary.includes("święto") && <span>🎉 </span>}
                 {event.summary.charAt(0).toUpperCase() + event.summary.slice(1)}
               </Text>
               <Text>
