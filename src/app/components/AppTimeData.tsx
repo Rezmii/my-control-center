@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 
 interface AppData {
   name: string;
@@ -30,9 +30,9 @@ const AppTimeData: React.FC = () => {
 
   return (
     <Box>
-      <Text fontSize="lg" mb={2}>
+      <Heading as="h2" fontSize="xl" mb={4}>
         Czas spędzony na aplikacjach:
-      </Text>
+      </Heading>
       {appData.map((app, index) => (
         <Text key={index}>
           {app.name}: {parseFloat(app.timeSpent.toFixed(2))} s

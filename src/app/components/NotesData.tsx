@@ -5,8 +5,7 @@ import { Box, Heading, Text } from "@chakra-ui/react";
 
 interface Note {
   name: string;
-  title?: string;
-  textContent?: { text: string };
+  content: string;
 }
 
 const NotesData: React.FC = () => {
@@ -24,7 +23,7 @@ const NotesData: React.FC = () => {
 
   return (
     <Box>
-      <Heading as="h2" size="lg" mb={4}>
+      <Heading as="h2" fontSize="xl" mb={4}>
         Notatki z Google Keep
       </Heading>
       {notes.map((note) => (
@@ -36,8 +35,8 @@ const NotesData: React.FC = () => {
           borderRadius="md"
           bg="white"
         >
-          <Text fontWeight="bold">{note.title || "Brak tytułu"}</Text>
-          <Text>{note.textContent?.text || "Brak treści"}</Text>
+          <Text fontWeight="bold">{note.name || "Brak tytułu"}</Text>
+          <Text>{note.content || "Brak treści"}</Text>
         </Box>
       ))}
     </Box>

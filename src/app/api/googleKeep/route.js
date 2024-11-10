@@ -1,31 +1,42 @@
-import { google } from "googleapis";
 import { NextResponse } from "next/server";
+import { exec } from "child_process";
+import path from "path";
 
-export async function GET() {
-  try {
-    // Autoryzacja
-    const auth = new google.auth.GoogleAuth({
-      credentials: {
-        client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-      },
-      scopes: ["https://www.googleapis.com/auth/keep.readonly"],
+// Zaktualizowana ścieżka do skryptu Python
+const scriptPath = path.resolve("src", "scripts", "script.py");
+
+export async function GET(request) {
+  return new Promise((resolve, reject) => {
+    exec(`python ${scriptPath}`, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Błąd wykonania skryptu: ${error.message}`);
+        return reject(
+          NextResponse.json(
+            { error: "Błąd wykonania skryptu Python" },
+            { status: 500 }
+          )
+        );
+      }
+      if (stderr) {
+        console.error(`Błąd skryptu: ${stderr}`);
+        return reject(
+          NextResponse.json({ error: "Błąd skryptu Python" }, { status: 500 })
+        );
+      }
+
+      // Zakładając, że skrypt zwraca dane w formacie JSON
+      try {
+        const result = JSON.parse(stdout); // Parsowanie wyników
+        resolve(NextResponse.json(result)); // Zwracanie wyników
+      } catch (parseError) {
+        console.error("Błąd parsowania JSON:", parseError);
+        reject(
+          NextResponse.json(
+            { error: "Błąd parsowania danych" },
+            { status: 500 }
+          )
+        );
+      }
     });
-
-    // Inicjalizacja API Google Keep
-    const keep = google.keep({ version: "v1", auth });
-
-    // Pobieranie notatek
-    const notesResponse = await keep.notes.list();
-    const notes = notesResponse.data.notes || [];
-
-    // Zwróć dane notatek jako JSON
-    return NextResponse.json(notes);
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json(
-      { error: "Błąd podczas pobierania notatek z Google Keep." },
-      { status: 500 }
-    );
-  }
+  });
 }
