@@ -2,7 +2,7 @@ import { Box, Heading, Grid, VStack } from "@chakra-ui/react";
 import GoogleCalendarEmbeded from "./components/GoogleCalendarEmbeded";
 import CalendarData from "./components/CalendarData";
 import NotesData from "./components/NotesData";
-import AppTimeData from "./components/AppTimeData";
+// import AppTimeData from "./components/AppTimeData";
 
 export default function Home() {
   return (

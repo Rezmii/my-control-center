@@ -5,7 +5,7 @@ import path from "path";
 // Zaktualizowana ścieżka do skryptu Python
 const scriptPath = path.resolve("src", "scripts", "script.py");
 
-export async function GET(request) {
+export async function GET() {
   return new Promise((resolve, reject) => {
     exec(`python ${scriptPath}`, (error, stdout, stderr) => {
       if (error) {
