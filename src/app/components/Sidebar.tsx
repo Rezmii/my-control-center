@@ -18,7 +18,7 @@ export default function Sidebar() {
       overflow="hidden"
     >
       <VStack align="start" spacing={4}>
-        <Link href="/pages/goals" passHref>
+        <Link href="https://goal-tracker-app-tan.vercel.app/czasowe" passHref>
           <Flex
             align="center"
             gap={1}
