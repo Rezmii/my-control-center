@@ -37,3 +37,6 @@ next-env.d.ts
 
 /config/my-control-center-ad42973bbbe5.json
 .env
+
+/scripts
+/api/googleKeep/route.js
