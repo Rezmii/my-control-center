@@ -1,3 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  /* Tutaj będziemy dodawać wszystkie nasze niestandardowe style i tokeny, np.: */
+  /* --font-sans: "Geist Sans", sans-serif; */
+  /* --color-primary: #3b82f6; */
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

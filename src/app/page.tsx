@@ -1,7 +1,6 @@
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import GoogleCalendarEmbeded from "./components/GoogleCalendarEmbeded";
 import CalendarData from "./components/CalendarData";
-import NotesData from "./components/NotesData";
 import AppTimeData from "./components/AppTimeData";
 
 export default function Home() {
@@ -14,9 +13,6 @@ export default function Home() {
       <Flex direction={{ base: "column", md: "row" }} gap={4}>
         <Box flex="1">
           <CalendarData />
-        </Box>
-        <Box flex="1">
-          <NotesData />
         </Box>
         <Box flex="1">
           <GoogleCalendarEmbeded />
